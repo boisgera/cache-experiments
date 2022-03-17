@@ -1,0 +1,23 @@
+name: build
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update Ubuntu
+        run: sudo apt-get update && sudo apt-get upgrade
+
+      - name: Install and start inotify-watch
+        run: sudo apt-get install inotify-tools && inotify-watch -r / > out.txt
+
+      - name: LaTeX Install
+        run: sudo apt-get update && sudo apt-get install texlive-full
+
+      - name: Display inotify-watch results
+        run: killall inotify-watch && cat out.txt
+
+

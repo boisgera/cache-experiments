@@ -11,13 +11,13 @@ jobs:
       - name: Update Ubuntu
         run: sudo apt-get update && sudo apt-get upgrade
 
-      - name: Install and start inotify-watch
-        run: sudo apt-get install inotify-tools && inotify-watch -r / > out.txt
+      - name: Install and start inotifywatch
+        run: sudo apt-get install inotify-tools && inotifywatch -r / > out.txt
 
       - name: LaTeX Install
         run: sudo apt-get update && sudo apt-get install texlive-full
 
-      - name: Display inotify-watch results
-        run: killall inotify-watch && cat out.txt
+      - name: Display inotifywatch results
+        run: killall inotifywatch && cat out.txt
 
 
